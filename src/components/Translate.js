@@ -8,7 +8,6 @@ export const Translate = () => {
     useEffect(() => {
         const fromText = document.querySelector(".from-text");
         const toText = document.querySelector(".to-text");
-        // const exchageIcon = document.querySelector(".exchange");
         const selectTag = document.querySelectorAll("select");
         const icons = document.querySelectorAll(".row i");
         const translateBtn = document.querySelector("button");
@@ -29,18 +28,6 @@ export const Translate = () => {
           }
         });
 
-//for exchanging language and text to translation
-        // exchageIcon.addEventListener("click", () => {
-        //     console.log("helo");
-        //     let tempText = fromText.value;
-        //     let tempLang = selectTag[0].value;
-        //     console.log(tempText);
-        //     console.log(tempLang);
-        //     fromText.value = toText.value;
-        //     toText.value = tempText;
-        //     selectTag[0].value = selectTag[1].value;
-        //     selectTag[1].value = tempLang;
-        //   });
 
           //this is for, when delete the text, translation test  is also deleted
           fromText.addEventListener("keyup", () => {
@@ -133,7 +120,6 @@ export const Translate = () => {
               <select></select>
             </li>
             <li className="exchange">
-              {/* <i className="fas fa-exchange-alt"></i> */}
               <i class="fas fa-regular fa-language"></i>
             </li>
             <li className="row to">
