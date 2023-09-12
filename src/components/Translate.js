@@ -8,7 +8,7 @@ export const Translate = () => {
     useEffect(() => {
         const fromText = document.querySelector(".from-text");
         const toText = document.querySelector(".to-text");
-        const exchageIcon = document.querySelector(".exchange");
+        // const exchageIcon = document.querySelector(".exchange");
         const selectTag = document.querySelectorAll("select");
         const icons = document.querySelectorAll(".row i");
         const translateBtn = document.querySelector("button");
@@ -17,11 +17,11 @@ export const Translate = () => {
         selectTag.forEach((tag, id) => {
           for (let country_code in countries) {
             let selected =
-              id == 0
-                ? country_code == "en-GB"
+              id === 0
+                ? country_code === "en-GB"
                   ? "selected"
                   : ""
-                : country_code == "hi-IN"
+                : country_code === "hi-IN"
                 ? "selected"
                 : "";
             let option = `<option ${selected} value="${country_code}">${countries[country_code]}</option>`;
@@ -30,17 +30,17 @@ export const Translate = () => {
         });
 
 //for exchanging language and text to translation
-        exchageIcon.addEventListener("click", () => {
-            console.log("helo");
-            let tempText = fromText.value;
-            let tempLang = selectTag[0].value;
-            console.log(tempText);
-            console.log(tempLang);
-            fromText.value = toText.value;
-            toText.value = tempText;
-            selectTag[0].value = selectTag[1].value;
-            selectTag[1].value = tempLang;
-          });
+        // exchageIcon.addEventListener("click", () => {
+        //     console.log("helo");
+        //     let tempText = fromText.value;
+        //     let tempLang = selectTag[0].value;
+        //     console.log(tempText);
+        //     console.log(tempLang);
+        //     fromText.value = toText.value;
+        //     toText.value = tempText;
+        //     selectTag[0].value = selectTag[1].value;
+        //     selectTag[1].value = tempLang;
+        //   });
 
           //this is for, when delete the text, translation test  is also deleted
           fromText.addEventListener("keyup", () => {
@@ -75,7 +75,7 @@ export const Translate = () => {
             icon.addEventListener("click", ({ target }) => {
               if (!fromText.value || !toText.value) return;
               if (target.classList.contains("fa-copy")) {
-                if (target.id == "from") {
+                if (target.id === "from") {
                   navigator.clipboard.writeText(fromText.value);
                   alert("text copied")
                 } else {
@@ -84,7 +84,7 @@ export const Translate = () => {
                 }
               } else {
                 let utterance;
-                if (target.id == "from") {
+                if (target.id === "from") {
                   utterance = new SpeechSynthesisUtterance(fromText.value);
                   utterance.lang = selectTag[0].value;
                 } else {
@@ -103,6 +103,11 @@ export const Translate = () => {
   return (
 
     <>
+    <div class="header">
+  <h1>📃📄Translator App 📑📝</h1>
+  
+</div>
+
         <div className="container">
         <div className="wrapper">
           <div className="text-input">
@@ -128,7 +133,8 @@ export const Translate = () => {
               <select></select>
             </li>
             <li className="exchange">
-              <i className="fas fa-exchange-alt"></i>
+              {/* <i className="fas fa-exchange-alt"></i> */}
+              <i class="fas fa-regular fa-language"></i>
             </li>
             <li className="row to">
               <select></select>
